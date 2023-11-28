@@ -13,6 +13,17 @@ const Parallax = ({ type }) => {
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "500%"]);
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  const textVariants = {
+    scrollButton: {
+      opacity: 0,
+      y: 10,
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+      },
+    },
+  };
+
   return (
     <div
       className="parallax"
@@ -25,7 +36,14 @@ const Parallax = ({ type }) => {
       }}
     >
       <motion.h1 style={{ y: yText }}>
-        {type === "services" ? "What We Do?" : "What We Did?"}
+         Hi! I'm Thang,<br/> a Web Developer <br/>
+         <p>Scroll down for more</p>
+         <motion.img
+            variants={textVariants}
+            animate='scrollButton'
+            src='/scroll.png'
+            alt=''
+          />
       </motion.h1>
       <motion.div className="mountains"></motion.div>
       <motion.div

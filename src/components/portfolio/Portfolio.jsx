@@ -5,27 +5,33 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "React Commerce",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Spotify Clone",
+    img: "/spotifyClone.png",
+    desc: "Vibrant music app featuring diverse genres, top charts, and artist pages. Utilizes the Spotify public API via RapidAPI for a rich collection of songs. Explore location-based songs and enjoy an intuitive search bar for seamless music discovery.",
+    technologies:
+      "React, TailwindCSS, Redux, Axios, RapidAPI, React Router, Swiper, etc…",
+    demo: "https://spotify-clone-bqgr.onrender.com",
+    github: "https://github.com/tnttb79/spotify-clone_07_03-08_01/tree/main/spotify-clone"
   },
   {
     id: 2,
-    title: "Next.js Blog",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Social App",
+    img: "/socialApp.png",
+    desc: "A full-stack web app where user can create, update, delete, comment, and like posts with image uploads. Full user authentication system, including sign-in, sign-up, and log-out functionalities.",
+    technologies:
+      "React, TailwindCSS, MongoDB, Express, Redux, JWT, React Router, etc…",
+    demo: "https://my-memories-uf61.onrender.com",
+    github: "https://github.com/tnttb79/WEB-REACT-MyGallery-fullstack-MERN-app"
   },
   {
     id: 3,
-    title: "Vanilla JS App",
-    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-  },
-  {
-    id: 4,
-    title: "Music App",
-    img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Admin Dashboard",
+    img: "/adminDashboard.png",
+    desc: "An admin dashboard (Front-end) featuring diverse chart types, interactive data tables, and a flexible data grid. Implemented a sleek user interface with light and dark modes for optimal viewing.",
+    technologies:
+      "React, Material-UI, React Router, Nivo Charts, Formik, Yup, FullCalendar, etc…",
+    demo: "https://admin-dashboard-8hz5.onrender.com",
+    github: "https://github.com/tnttb79/WEB-REACT-dashboar-frontend_5_15-6_29"
   },
 ];
 
@@ -39,16 +45,25 @@ const Single = ({ item }) => {
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
   return (
-    <section >
-      <div className="container">
-        <div className="wrapper">
-          <div className="imageContainer" ref={ref}>
-            <img src={item.img} alt="" />
+    <section>
+      <div className='container'>
+        <div className='wrapper'>
+          <div className='imageContainer' ref={ref}>
+            <img src={item.img} alt='' />
           </div>
-          <motion.div className="textContainer" style={{y}}>
+          <motion.div className='textContainer' style={{ y }}>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button>See Demo</button>
+            <p className='technologies'>
+              <strong>Techonologies used:</strong> {item.technologies}
+            </p>
+            <div className='linksContainer'>
+              <a href={item.demo}>See Demo</a>
+              <a href={item.github}>
+                 See Github
+                <img src='/github.png' alt='' />
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -70,10 +85,10 @@ const Portfolio = () => {
   });
 
   return (
-    <div className="portfolio" ref={ref}>
-      <div className="progress">
-        <h1>Featured Works</h1>
-        <motion.div style={{ scaleX }} className="progressBar"></motion.div>
+    <div className='portfolio' id="Portfolio" ref={ref}>
+      <div className='progress'>
+        <h1>Some of My Works</h1>
+        <motion.div style={{ scaleX }} className='progressBar'></motion.div>
       </div>
       {items.map((item) => (
         <Single item={item} key={item.id} />
