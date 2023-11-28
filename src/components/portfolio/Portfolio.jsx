@@ -11,7 +11,8 @@ const items = [
     technologies:
       "React, TailwindCSS, Redux, Axios, RapidAPI, React Router, Swiper, etc…",
     demo: "https://spotify-clone-bqgr.onrender.com",
-    github: "https://github.com/tnttb79/spotify-clone_07_03-08_01/tree/main/spotify-clone"
+    github:
+      "https://github.com/tnttb79/spotify-clone_07_03-08_01/tree/main/spotify-clone",
   },
   {
     id: 2,
@@ -21,7 +22,7 @@ const items = [
     technologies:
       "React, TailwindCSS, MongoDB, Express, Redux, JWT, React Router, etc…",
     demo: "https://my-memories-uf61.onrender.com",
-    github: "https://github.com/tnttb79/WEB-REACT-MyGallery-fullstack-MERN-app"
+    github: "https://github.com/tnttb79/WEB-REACT-MyGallery-fullstack-MERN-app",
   },
   {
     id: 3,
@@ -31,7 +32,7 @@ const items = [
     technologies:
       "React, Material-UI, React Router, Nivo Charts, Formik, Yup, FullCalendar, etc…",
     demo: "https://admin-dashboard-8hz5.onrender.com",
-    github: "https://github.com/tnttb79/WEB-REACT-dashboar-frontend_5_15-6_29"
+    github: "https://github.com/tnttb79/WEB-REACT-dashboar-frontend_5_15-6_29",
   },
 ];
 
@@ -58,9 +59,11 @@ const Single = ({ item }) => {
               <strong>Techonologies used:</strong> {item.technologies}
             </p>
             <div className='linksContainer'>
-              <a href={item.demo}>See Demo</a>
-              <a href={item.github}>
-                 See Github
+              <a href={item.demo} target='_blank' rel='noreferrer'>
+                See Demo
+              </a>
+              <a href={item.github} target='_blank' rel='noreferrer'>
+                See Github
                 <img src='/github.png' alt='' />
               </a>
             </div>
@@ -85,7 +88,7 @@ const Portfolio = () => {
   });
 
   return (
-    <div className='portfolio' id="Portfolio" ref={ref}>
+    <div className='portfolio' id='Portfolio' ref={ref}>
       <div className='progress'>
         <h1>Some of My Works</h1>
         <motion.div style={{ scaleX }} className='progressBar'></motion.div>

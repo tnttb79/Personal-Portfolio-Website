@@ -41,26 +41,36 @@ const About = () => {
         >
           <motion.h2 variants={textVariants}>About Me</motion.h2>
           <motion.p variants={textVariants}>
-            🚀Hey there, I'm <motion.strong>Thang Ta</motion.strong>, a passionate Software Developer in
-            Phoenix, AZ, armed with a Master's in Data Analytics. My coding
-            journey began with SQL and Python for data analysis and evolving into
-            self-taught <motion.strong>web development</motion.strong> through building cool projects. Outside
-            the tech world, I find joy in learning languages and playing soccer.
-            I'm excited to contribute to innovative projects and explore new
-            horizons. Connect with me on{" "}
-            <a href='https://www.linkedin.com/in/thang-ta-a68660240/'>
+            🚀Hey there, I'm <motion.strong>Thang Ta</motion.strong>, a
+            passionate Software Developer in Phoenix, AZ, armed with a Master's
+            in Data Analytics. My coding journey began with SQL and Python for
+            data analysis and evolving into self-taught{" "}
+            <motion.strong>web development</motion.strong> through building cool
+            projects. Outside the tech world, I find joy in learning languages
+            and playing soccer. I'm excited to contribute to innovative projects
+            and explore new horizons. Connect with me on{" "}
+            <a
+              href='https://www.linkedin.com/in/thang-ta-a68660240/'
+              target='_blank'
+              rel='noreferrer'
+            >
               <img src='/linkedIn.png' alt='' />
-            </a>{" "}
+            </a>
             and explore my coding adventures on{" "}
-            <a href='https://github.com/tnttb79'>
+            <a
+              href='https://github.com/tnttb79'
+              target='_blank'
+              rel='noreferrer'
+            >
               <img src='/github.png' alt='' />
             </a>
             . Let's code something extraordinary!!!
             <motion.div className='skillsContainer'>
               <motion.p>
-                Here are a few <motion.strong>technologies</motion.strong> I’ve been working with recently:
+                Here are a few <motion.strong>technologies</motion.strong> I’ve
+                been working with recently:
               </motion.p>
-              <motion.div className="skills">
+              <motion.div className='skills'>
                 <motion.ul>
                   <motion.li>JavaScripts/TypeScript</motion.li>
                   <motion.li>ReactJS</motion.li>
@@ -81,10 +91,11 @@ const About = () => {
             </motion.div>
           </motion.p>
           <motion.div variants={textVariants} className='buttons'>
-            <button>
-              Check Out My Works
-            </button>
-            <button>Contact Me</button>
+            <a href='#Portfolio'>Check Out My Works</a>
+            <a href='#Contact'>Contact Me</a>
+            <a href='/Thang_Ta_Resume(WD).pdf' target='_blank' rel='noreferrer'>
+              View My Resume
+            </a>
           </motion.div>
         </motion.div>
       </div>
