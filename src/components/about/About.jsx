@@ -45,7 +45,7 @@ const About = () => {
             passionate Software Developer in Phoenix, AZ, armed with a Master's
             in Data Analytics. My coding journey began with SQL and Python for
             data analysis and evolving into self-taught{" "}
-            <motion.strong>web development</motion.strong> through building cool
+            <motion.strong>web development</motion.strong> through building many cool
             projects. Outside the tech world, I find joy in learning languages
             and playing soccer. I'm excited to contribute to innovative projects
             and explore new horizons. Connect with me on{" "}
@@ -56,7 +56,7 @@ const About = () => {
             >
               <img src='/linkedIn.png' alt='' />
             </a>
-            and explore my coding adventures on{" "}
+            or explore my coding adventures on{" "}
             <a
               href='https://github.com/tnttb79'
               target='_blank'

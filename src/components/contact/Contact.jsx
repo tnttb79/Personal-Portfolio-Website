@@ -68,6 +68,23 @@ const Contact = () => {
           <h2>Phone</h2>
           <span>+623 272 2430</span>
         </motion.div>
+        <motion.div className="item" variants={variants}>
+          <h2>Social Media</h2>
+          <span><a
+              href='https://www.linkedin.com/in/thang-ta-a68660240/'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <img src='/linkedIn.png' alt='' />
+            </a>
+            <a
+              href='https://github.com/tnttb79'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <img src='/github.png' alt='' />
+            </a></span>
+        </motion.div>
       </motion.div>
       <div className="formContainer">
         <motion.div
