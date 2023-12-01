@@ -22,7 +22,7 @@ const Cursor = () => {
       className="cursor"
       animate={{ x: position.x+6, y: position.y+6 }}
     >
-      🛸
+      ⭐
     </motion.div>
   );
 };
