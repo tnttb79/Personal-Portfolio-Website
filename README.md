@@ -3,7 +3,8 @@
 ## Live demo🚀🚀🚀:
 ### https://www.thangta.net/
 
-![image](https://github.com/tnttb79/personal-website/assets/90600992/ff42a7a7-664e-40ae-8237-26a6ba431370)
+![image](https://github.com/tnttb79/Personal-Portfolio-Website/assets/90600992/a1688ef3-7890-479a-92d1-464d90d53822)
+
 
 
 ## Features
@@ -29,9 +30,6 @@ Start the development server:
 `npm start`
 `Visit http://localhost:your_port` in your web browser to view the website.
 
-## Author
-Thang Ta
-Feel free to explore the code, make it your own, and showcase your projects in style!
 Happy coding! 🚀🚀🚀
 
 5d
