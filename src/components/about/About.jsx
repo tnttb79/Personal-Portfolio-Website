@@ -44,8 +44,8 @@ const About = () => {
             🚀Hey there, I'm <motion.strong>Thang Ta</motion.strong>, a
             passionate Software Developer in Phoenix, AZ, armed with a Master's
             in Data Analytics. My coding journey began with SQL and Python for
-            data analysis and evolving into self-taught{" "}
-            <motion.strong>web development</motion.strong> through building many cool
+            data analysis and evolving into {" "}
+            <motion.strong>SoftWare Development</motion.strong> through building many cool
             projects. Outside the tech world, I find joy in learning languages
             and playing soccer. I'm excited to contribute to innovative projects
             and explore new horizons. Connect with me on{" "}
@@ -73,14 +73,14 @@ const About = () => {
               <motion.div className='skills'>
                 <motion.ul>
                   <motion.li>JavaScripts/TypeScript</motion.li>
-                  <motion.li>ReactJS</motion.li>
+                  <motion.li>ReactJS/React Native</motion.li>
                   <motion.li>TailwindCSS/BootStrap/MUI </motion.li>
                   <motion.li>Redux </motion.li>
                   <motion.li>CSS </motion.li>
                   <motion.li>HTML </motion.li>
                 </motion.ul>
                 <motion.ul>
-                  <motion.li>Python</motion.li>
+                  <motion.li>Python/FastAPI</motion.li>
                   <motion.li>NodeJS</motion.li>
                   <motion.li>SQL/MongoDB</motion.li>
                   <motion.li>ExpressJS</motion.li>
@@ -93,7 +93,7 @@ const About = () => {
           <motion.div variants={textVariants} className='buttons'>
             <a href='#Portfolio'>Check Out My Works</a>
             <a href='#Contact'>Contact Me</a>
-            <a href='/Thang_Ta_Resume(WD).pdf' target='_blank' rel='noreferrer'>
+            <a href='/Thang_Ta_Resume(WD)_2.pdf' target='_blank' rel='noreferrer'>
               View My Resume
             </a>
           </motion.div>

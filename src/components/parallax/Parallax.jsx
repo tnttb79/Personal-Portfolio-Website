@@ -2,7 +2,7 @@ import { useRef } from "react";
 import "./parallax.scss";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const Parallax = ({ type }) => {
+const Parallax = () => {
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -33,7 +33,7 @@ const Parallax = ({ type }) => {
       }}
     >
       <motion.h1 style={{ y: yText }}>
-         Hi! I'm Thang,<br/> a Web Developer <br/>
+         Hi! I'm Thang,<br/> a Software Developer <br/>
          <p>Scroll down for more</p>
          <motion.img
             variants={textVariants}
