@@ -34,6 +34,16 @@ const items = [
     demo: "https://admin-dashboard-8hz5.onrender.com",
     github: "https://github.com/tnttb79/WEB-REACT-dashboar-frontend_5_15-6_29",
   },
+  {
+    id: 4,
+    title: "Application Management",
+    img: "/ApplicationManagement.png",
+    desc: "A modern, full-stack web application for managing job applications and resumes. Built with React, .NET Core, and SQL Server, featuring a beautiful dark/light theme and modern UI components. 🚧 Currently in development with upcoming features including user authentication and deployment.",
+    technologies:
+      "React, TypeScript, Material-UI, SCSS, .NET Core 8.0, SQL Server, Docker, Entity Framework Core, etc...",
+    demo: null,
+    github: "https://github.com/tnttb79/ResumeMgtWebAPIDotNet",
+  },
 ];
 
 const Single = ({ item }) => {
@@ -59,9 +69,15 @@ const Single = ({ item }) => {
               <strong>Techonologies used:</strong> {item.technologies}
             </p>
             <div className='linksContainer'>
-              <a href={item.demo} target='_blank' rel='noreferrer'>
-                See Demo
-              </a>
+              {item.demo ? (
+                <a href={item.demo} target='_blank' rel='noreferrer'>
+                  See Demo
+                </a>
+              ) : (
+                <button className='demo-disabled' disabled>
+                  Demo Coming Soon
+                </button>
+              )}
               <a href={item.github} target='_blank' rel='noreferrer'>
                 See Github
                 <img src='/github.png' alt='' />
