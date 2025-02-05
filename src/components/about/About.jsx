@@ -44,11 +44,11 @@ const About = () => {
             🚀Hey there, I'm <motion.strong>Thang Ta</motion.strong>, a
             passionate Software Developer in Phoenix, AZ, armed with a Master's
             in Data Analytics. My coding journey began with SQL and Python for
-            data analysis and evolving into {" "}
-            <motion.strong>Software Development</motion.strong> through building many cool
-            projects. Outside the tech world, I find joy in learning languages
-            and playing soccer. I'm excited to contribute to innovative projects
-            and explore new horizons. Connect with me on{" "}
+            data analysis and evolving into{" "}
+            <motion.strong>Software Development</motion.strong> through building
+            many cool projects. Outside the tech world, I find joy in learning
+            languages and playing soccer. I'm excited to contribute to
+            innovative projects and explore new horizons. Connect with me on{" "}
             <a
               href='https://www.linkedin.com/in/thang-ta-a68660240/'
               target='_blank'
@@ -67,35 +67,37 @@ const About = () => {
             . Let's code something extraordinary!!!
             <motion.div className='skillsContainer'>
               <motion.p>
-                Here are a few <motion.strong>technologies</motion.strong> I’ve
+                Here are a few <motion.strong>technologies</motion.strong> I've
                 been working with recently:
               </motion.p>
               <motion.div className='skills'>
                 <motion.ul>
-                  <motion.li>JavaScripts/TypeScript</motion.li>
-                  <motion.li>ReactJS/React Native</motion.li>
-                  <motion.li>TailwindCSS/BootStrap/MUI </motion.li>
-                  <motion.li>Redux </motion.li>
-                  <motion.li>CSS </motion.li>
-                  <motion.li>HTML </motion.li>
+                  <motion.li>JavaScript/TypeScript</motion.li>
+                  <motion.li>NextJS/ReactJS/React Native</motion.li>
+                  <motion.li>TailwindCSS/Bootstrap/MUI</motion.li>
+                  <motion.li>Redux/State Management</motion.li>
+                  <motion.li>HTML/CSS</motion.li>
+                  <motion.li>C#/ASP.NET Core</motion.li>
                 </motion.ul>
                 <motion.ul>
+                  <motion.li>NodeJS/ExpressJS/NestJS</motion.li>
                   <motion.li>Python/FastAPI</motion.li>
-                  <motion.li>NodeJS</motion.li>
-                  <motion.li>SQL/MongoDB</motion.li>
-                  <motion.li>ExpressJS</motion.li>
+                  <motion.li>PostgreSQL/MongoDB/Redis</motion.li>
+                  <motion.li>Docker/Docker Compose</motion.li>
+                  <motion.li>AWS/Azure</motion.li>
                   <motion.li>Git/GitHub</motion.li>
-                  <motion.li>RestAPI</motion.li>
                 </motion.ul>
               </motion.div>
             </motion.div>
           </motion.p>
           <motion.div variants={textVariants} className='buttons'>
+            <a href='/Thang_Ta_Resume(WD).pdf' target='_blank' rel='noreferrer'>
+              <span className='keyword'>View</span>
+              <span className='param'>My</span>
+              <span>Resume</span>
+            </a>
             <a href='#Portfolio'>Check Out My Works</a>
             <a href='#Contact'>Contact Me</a>
-            <a href='/Thang_Ta_Resume(WD).pdf' target='_blank' rel='noreferrer'>
-              View My Resume
-            </a>
           </motion.div>
         </motion.div>
       </div>

@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <Cursor />
       <section id='Homepage'>
-        <Sidebar/>
+        <Sidebar />
         <Parallax type='Home' />
       </section>
       <section id='About'>
