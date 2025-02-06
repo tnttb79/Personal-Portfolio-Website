@@ -40,7 +40,7 @@ const items = [
     img: "/ApplicationManagement.png",
     desc: "A modern, full-stack web application for managing job applications and resumes. Built with React, .NET Core, and SQL Server, featuring a beautiful dark/light theme and modern UI components. 🚧 Currently in development with upcoming features including user authentication and deployment.",
     technologies:
-      "React, TypeScript, Material-UI, SCSS, .NET Core 8.0, SQL Server, Docker, Entity Framework Core, etc...",
+      "React, TypeScript, Material-UI, SCSS, .NET Core 8.0, SQL Server, Docker Compose, Entity Framework Core, etc...",
     demo: null,
     github: "https://github.com/tnttb79/ResumeMgtWebAPIDotNet",
   },
