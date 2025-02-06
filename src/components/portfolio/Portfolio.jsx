@@ -11,8 +11,7 @@ const items = [
     technologies:
       "React, TailwindCSS, Redux, Axios, RapidAPI, React Router, Swiper, etc…",
     demo: "https://spotify-clone-bqgr.onrender.com",
-    github:
-      "https://github.com/tnttb79/spotify-clone_07_03-08_01/tree/main/spotify-clone",
+    github: "https://github.com/tnttb79/Spotify-Clone-Full-stack_07_03-08_01",
   },
   {
     id: 2,
