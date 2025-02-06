@@ -30,7 +30,38 @@
     }
 
     .name {
-      color: var(--vscode-function);
+      color: #00ff9d !important;
+      text-shadow: 0 0 5px #00ff9d, 0 0 8px #00ff9d, 0 0 15px #00ff9d,
+        0 0 30px rgba(0, 255, 157, 0.8), 0 0 65px rgba(0, 255, 157, 0.6),
+        0 0 75px rgba(0, 255, 157, 0.5);
+      animation: pulsate 2s infinite alternate,
+        float-text 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes float-text {
+      0% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-8px) translateX(5px);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+    }
+
+    @keyframes pulsate {
+      100% {
+        text-shadow: 0 0 3px #00ff9d, 0 0 8px #00ff9d, 0 0 12px #00ff9d,
+          0 0 25px rgba(0, 255, 157, 0.8), 0 0 55px rgba(0, 255, 157, 0.6),
+          0 0 65px rgba(0, 255, 157, 0.5);
+      }
+      0% {
+        text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 20px #00ff9d,
+          0 0 35px rgba(0, 255, 157, 0.8), 0 0 75px rgba(0, 255, 157, 0.6),
+          0 0 85px rgba(0, 255, 157, 0.5);
+      }
     }
 
     .role {
@@ -218,7 +249,38 @@
       }
 
       .name {
-        color: var(--vscode-function);
+        color: #00ff9d !important;
+        text-shadow: 0 0 5px #00ff9d, 0 0 8px #00ff9d, 0 0 15px #00ff9d,
+          0 0 30px rgba(0, 255, 157, 0.8), 0 0 65px rgba(0, 255, 157, 0.6),
+          0 0 75px rgba(0, 255, 157, 0.5);
+        animation: pulsate 2s infinite alternate,
+          float-text 3s ease-in-out infinite;
+        display: inline-block;
+      }
+
+      @keyframes float-text {
+        0% {
+          transform: translateY(0px) translateX(0px);
+        }
+        50% {
+          transform: translateY(-8px) translateX(5px);
+        }
+        100% {
+          transform: translateY(0px) translateX(0px);
+        }
+      }
+
+      @keyframes pulsate {
+        100% {
+          text-shadow: 0 0 3px #00ff9d, 0 0 8px #00ff9d, 0 0 12px #00ff9d,
+            0 0 25px rgba(0, 255, 157, 0.8), 0 0 55px rgba(0, 255, 157, 0.6),
+            0 0 65px rgba(0, 255, 157, 0.5);
+        }
+        0% {
+          text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 20px #00ff9d,
+            0 0 35px rgba(0, 255, 157, 0.8), 0 0 75px rgba(0, 255, 157, 0.6),
+            0 0 85px rgba(0, 255, 157, 0.5);
+        }
       }
 
       .role {
@@ -333,6 +395,113 @@
 
     @include mobile {
       background-position: center center;
+    }
+  }
+
+  // Tech icons parallax styling
+  .tech-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: visible;
+
+    .icon {
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.85;
+      transition: all 0.3s ease;
+      z-index: 2;
+      transform-origin: center;
+      scale: 1.2;
+
+      &:nth-child(1) {
+        top: 10%;
+        left: 8%;
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        top: 15%;
+        right: 8%;
+        animation-delay: -1s;
+      }
+      &:nth-child(3) {
+        bottom: 25%;
+        left: 12%;
+        animation-delay: -2s;
+      }
+      &:nth-child(4) {
+        bottom: 30%;
+        right: 12%;
+        animation-delay: -3s;
+      }
+      &:nth-child(5) {
+        top: 20%;
+        right: 25%;
+        animation-delay: -4s;
+      }
+      &:nth-child(6) {
+        bottom: 20%;
+        left: 25%;
+        animation-delay: -5s;
+      }
+      &:nth-child(7) {
+        top: 25%;
+        left: 30%;
+        animation-delay: -6s;
+      }
+      &:nth-child(8) {
+        bottom: 35%;
+        right: 30%;
+        animation-delay: -7s;
+      }
+
+      &.react {
+        filter: drop-shadow(0 0 25px rgba(97, 218, 251, 1))
+          drop-shadow(0 0 35px rgba(97, 218, 251, 1))
+          drop-shadow(0 0 45px rgba(97, 218, 251, 0.9)) brightness(2);
+      }
+      &.javascript {
+        filter: drop-shadow(0 0 25px rgba(247, 223, 30, 1))
+          drop-shadow(0 0 35px rgba(247, 223, 30, 1))
+          drop-shadow(0 0 45px rgba(247, 223, 30, 0.9)) brightness(2);
+      }
+      &.typescript {
+        filter: drop-shadow(0 0 25px rgba(49, 120, 198, 1))
+          drop-shadow(0 0 35px rgba(49, 120, 198, 1))
+          drop-shadow(0 0 45px rgba(49, 120, 198, 0.9)) brightness(2);
+      }
+      &.python {
+        filter: drop-shadow(0 0 25px rgba(55, 118, 171, 1))
+          drop-shadow(0 0 35px rgba(55, 118, 171, 1))
+          drop-shadow(0 0 45px rgba(55, 118, 171, 0.9)) brightness(2);
+      }
+      &.csharp {
+        filter: drop-shadow(0 0 25px rgba(104, 33, 122, 1))
+          drop-shadow(0 0 35px rgba(104, 33, 122, 1))
+          drop-shadow(0 0 45px rgba(104, 33, 122, 0.9)) brightness(2);
+      }
+      &.docker {
+        filter: drop-shadow(0 0 25px rgba(13, 136, 209, 1))
+          drop-shadow(0 0 35px rgba(13, 136, 209, 1))
+          drop-shadow(0 0 45px rgba(13, 136, 209, 0.9)) brightness(2);
+      }
+      &.html {
+        filter: drop-shadow(0 0 25px rgba(228, 77, 38, 1))
+          drop-shadow(0 0 35px rgba(228, 77, 38, 1))
+          drop-shadow(0 0 45px rgba(228, 77, 38, 0.9)) brightness(2);
+      }
+      &.css {
+        filter: drop-shadow(0 0 25px rgba(21, 114, 182, 1))
+          drop-shadow(0 0 35px rgba(21, 114, 182, 1))
+          drop-shadow(0 0 45px rgba(21, 114, 182, 0.9)) brightness(2);
+      }
+
+      animation: float 8s ease-in-out infinite;
     }
   }
 }

@@ -10,8 +10,8 @@ const Parallax = () => {
     offset: ["start start", "end start"],
   });
 
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   const textVariants = {
     scrollButton: {
@@ -53,9 +53,6 @@ const Parallax = () => {
       {/* Floating elements */}
       <div className='floating-elements'>
         <div className='element'>{"<code/>"}</div>
-        <div className='element'>{"{ }"}</div>
-        <div className='element'>{"[...]"}</div>
-        <div className='element'>{"// ✨"}</div>
       </div>
 
       {/* Main content */}
@@ -75,26 +72,41 @@ const Parallax = () => {
       </div>
 
       {/* Background elements */}
-      <motion.div
-        className='mountains'
-        style={{
-          y: yBg,
-          backgroundImage: 'url("/mountains.png")',
-        }}
-      />
-      <motion.div
-        className='planets'
-        style={{
-          y: yBg,
-          backgroundImage: 'url("/planets.png")',
-        }}
-      />
-      <div
-        className='stars'
-        style={{
-          backgroundImage: 'url("/stars.png")',
-        }}
-      />
+      <motion.div className='tech-icons' style={{ y: yBg }}>
+        <div
+          className='icon react'
+          style={{ backgroundImage: 'url("/paralaxIcons/react.png")' }}
+        ></div>
+        <div
+          className='icon javascript'
+          style={{ backgroundImage: 'url("/paralaxIcons/javaScript.png")' }}
+        ></div>
+        <div
+          className='icon typescript'
+          style={{ backgroundImage: 'url("/paralaxIcons/typeScript.png")' }}
+        ></div>
+        <div
+          className='icon python'
+          style={{ backgroundImage: 'url("/paralaxIcons/python.png")' }}
+        ></div>
+        <div
+          className='icon csharp'
+          style={{ backgroundImage: 'url("/paralaxIcons/cSharp.png")' }}
+        ></div>
+        <div
+          className='icon docker'
+          style={{ backgroundImage: 'url("/paralaxIcons/docker.png")' }}
+        ></div>
+        <div
+          className='icon html'
+          style={{ backgroundImage: 'url("/paralaxIcons/html.png")' }}
+        ></div>
+        <div
+          className='icon css'
+          style={{ backgroundImage: 'url("/paralaxIcons/css.png")' }}
+        ></div>
+      </motion.div>
+      <div className='stars' />
       <div className='scroll-indicator'>
         <span>Explore my journey</span>
       </div>
