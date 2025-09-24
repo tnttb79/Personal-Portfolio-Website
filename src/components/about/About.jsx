@@ -41,13 +41,12 @@ const About = () => {
         >
           <motion.h2 variants={textVariants}>About Me</motion.h2>
           <motion.p variants={textVariants}>
-            🚀Hey there, I'm <motion.strong>Thang Ta</motion.strong>, a
-            passionate Software Developer in Phoenix, AZ, armed with a Master's
-            in Data Analytics. My coding journey began with SQL and Python for
-            data analysis and evolving into{" "}
+            🚀Hey there, I&apos;m <motion.strong>Thang Ta</motion.strong>, a
+            passionate Software Developer. My coding journey began with SQL and
+            Python for data analysis and evolved into{" "}
             <motion.strong>Software Development</motion.strong> through building
             many cool projects. Outside the tech world, I find joy in learning
-            languages and playing soccer. I'm excited to contribute to
+            languages and playing soccer. I&apos;m excited to contribute to
             innovative projects and explore new horizons. Connect with me on{" "}
             <a
               href='https://www.linkedin.com/in/thang-ta-a68660240/'
@@ -64,28 +63,28 @@ const About = () => {
             >
               <img src='/github.png' alt='' />
             </a>
-            . Let's code something extraordinary!!!
+            . Let&apos;s code something extraordinary!!!
             <motion.div className='skillsContainer'>
               <motion.p>
-                Here are a few <motion.strong>technologies</motion.strong> I've
-                been working with recently:
+                Here are a few <motion.strong>technologies</motion.strong>{" "}
+                I&apos;ve been working with recently:
               </motion.p>
               <motion.div className='skills'>
                 <motion.ul>
                   <motion.li>JavaScript/TypeScript</motion.li>
-                  <motion.li>NextJS/ReactJS/React Native</motion.li>
-                  <motion.li>TailwindCSS/Bootstrap/MUI</motion.li>
-                  <motion.li>Redux/State Management</motion.li>
-                  <motion.li>HTML/CSS</motion.li>
+                  <motion.li>React/Next.js/React Native</motion.li>
                   <motion.li>C#/ASP.NET Core</motion.li>
+                  <motion.li>Node.js (Express/NestJS)</motion.li>
+                  <motion.li>Python (FastAPI)</motion.li>
+                  <motion.li>C++</motion.li>
                 </motion.ul>
                 <motion.ul>
-                  <motion.li>NodeJS/ExpressJS/NestJS</motion.li>
-                  <motion.li>Python/FastAPI</motion.li>
-                  <motion.li>PostgreSQL/MongoDB/Redis</motion.li>
-                  <motion.li>Docker/Docker Compose</motion.li>
-                  <motion.li>AWS/Azure</motion.li>
-                  <motion.li>Git/GitHub</motion.li>
+                  <motion.li>SQLServer/PostgreSQL/MongoDB/Redis</motion.li>
+                  <motion.li>EF Core/SQLAlchemy/Mongoose</motion.li>
+                  <motion.li>REST/GraphQL</motion.li>
+                  <motion.li>Kafka/RabbitMQ</motion.li>
+                  <motion.li>Docker/Kubernetes</motion.li>
+                  <motion.li>AWS/Azure/Azure DevOps (AKS)</motion.li>
                 </motion.ul>
               </motion.div>
             </motion.div>
