@@ -278,6 +278,19 @@
             border-color: var(--vscode-function);
           }
         }
+
+        span {
+          font-family: "Fira Code", monospace;
+          padding: 10px;
+          border-radius: 4px;
+          background-color: var(--vscode-bg);
+          border: 1px solid;
+
+          @include mobile {
+            font-size: 12px;
+            padding: 8px;
+          }
+        }
       }
     }
   }

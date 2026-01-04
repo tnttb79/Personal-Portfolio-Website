@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import "./contact.scss";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 const variants = {
@@ -19,15 +19,14 @@ const variants = {
 };
 
 const Contact = () => {
-  const ref = useRef();
   const formRef = useRef();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const isInView = useInView(ref, { margin: "-100px" });
-
   const sendEmail = (e) => {
     e.preventDefault();
+    setError(false);
+    setSuccess(false);
 
     emailjs
       .sendForm(
@@ -37,11 +36,15 @@ const Contact = () => {
         "h6SEcqgKHUxxLVWhw"
       )
       .then(
-        (result) => {
+        () => {
           setSuccess(true);
+          setError(false);
+          formRef.current.reset(); // Clear form after successful submission
         },
         (error) => {
           setError(true);
+          setSuccess(false);
+          console.error("EmailJS Error:", error);
         }
       );
   };
@@ -53,15 +56,15 @@ const Contact = () => {
           <h1>Contacts</h1>
           <div className='infoItem'>
             <h2>Email</h2>
-            <span>"tanguyentruongthang@gmail.com"</span>
+            <span>tanguyentruongthang@gmail.com</span>
           </div>
           <div className='infoItem'>
             <h2>Location</h2>
-            <span>"Phoenix, Arizona"</span>
+            <span>Phoenix, Arizona</span>
           </div>
           <div className='infoItem'>
             <h2>Phone</h2>
-            <span>"+1 623 272 2430"</span>
+            <span>+1 623 272 2430</span>
           </div>
           <div className='infoItem'>
             <h2>Social Media</h2>
@@ -84,14 +87,29 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className='formContainer'>
-          <form>
-            <input type='text' placeholder='Name' />
-            <input type='email' placeholder='Email' />
-            <textarea placeholder='Message'></textarea>
+        <motion.div
+          className='formContainer'
+          initial='initial'
+          whileInView='animate'
+          variants={variants}
+        >
+          <motion.form ref={formRef} onSubmit={sendEmail} variants={variants}>
+            <input type='text' required placeholder='Name' name='name' />
+            <input type='email' required placeholder='Email' name='email' />
+            <textarea rows={8} placeholder='Message' name='message' />
             <button type='submit'>Submit</button>
-          </form>
-        </div>
+            {error && (
+              <span style={{ color: "red", fontSize: "14px" }}>
+                Error sending message. Please try again.
+              </span>
+            )}
+            {success && (
+              <span style={{ color: "green", fontSize: "14px" }}>
+                Message sent successfully!
+              </span>
+            )}
+          </motion.form>
+        </motion.div>
       </div>
     </div>
   );
