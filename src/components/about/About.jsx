@@ -62,7 +62,7 @@ const About = () => {
         >
           <motion.h2 variants={textVariants}>About Me</motion.h2>
           <motion.p variants={textVariants}>
-            🚀Hey there, I&apos;m <strong>Thang Ta</strong>, a passionate
+            Hey there, I&apos;m <strong>Thang Ta</strong>, a passionate
             Software Developer. My coding journey began with SQL and Python for
             data analysis and evolved into <strong>Software Development</strong>{" "}
             through building many cool projects. Outside the tech world, I find
