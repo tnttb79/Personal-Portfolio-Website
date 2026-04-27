@@ -5,127 +5,91 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  color: var(--neutral-100);
+  color: var(--command-text);
 
   .bg {
     z-index: 999;
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 400px;
-    background: var(--vscode-sidebar);
-    border-right: 1px solid var(--vscode-border);
-    backdrop-filter: none;
+    inset: 0 auto 0 0;
+    width: 380px;
+    background:
+      linear-gradient(90deg, rgba(72, 215, 255, 0.08) 1px, transparent 1px),
+      var(--command-surface-strong);
+    background-size: 42px 42px;
+    border-right: 1px solid var(--command-line);
+    box-shadow: 20px 0 70px rgba(0, 0, 0, 0.44);
 
     @include mobile {
-      width: 200px;
+      width: min(82vw, 300px);
     }
 
     .links {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 14px;
+      padding: 72px 34px;
 
       a {
-        font-family: "Fira Code", monospace;
-        color: var(--vscode-text);
-        font-size: 14px;
-        padding: 8px 16px;
         width: 100%;
-        text-align: left;
-
-        &:hover {
-          background: var(--vscode-selection);
-          transform: none;
-        }
+        padding: 14px 16px;
+        border: 1px solid var(--command-line-strong);
+        border-radius: var(--command-radius);
+        color: var(--command-text);
+        background: rgba(3, 6, 8, 0.68);
+        font-family: "Fira Code", monospace;
+        font-size: 14px;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
         &::before {
-          content: "→";
+          content: "./";
           margin-right: 8px;
-          color: var(--vscode-comment);
+          color: var(--command-green);
         }
 
-        &::after {
-          display: none;
+        &:hover {
+          color: var(--command-cyan);
+          border-color: var(--command-cyan);
+          background: rgba(72, 215, 255, 0.1);
         }
       }
     }
   }
 
   button {
-    z-index: 999;
+    z-index: 1000;
     position: fixed;
+    top: 24px;
+    left: 24px;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    position: fixed;
-    top: 28px;
-    left: 25px;
-    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-    border: 2px solid #00ff9d;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--command-green);
+    border-radius: var(--command-radius);
+    background: #020302;
+    color: var(--command-green);
+    box-shadow:
+      0 0 0 2px rgba(2, 3, 2, 0.95),
+      0 0 0 3px rgba(182, 255, 173, 0.2),
+      0 0 26px rgba(182, 255, 173, 0.46);
     cursor: none;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 20%;
-      left: 20%;
-      width: 15px;
-      height: 15px;
-      background: #00ff9d;
-      border-radius: 50%;
-      filter: blur(2px);
-      opacity: 0.8;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 35%;
-      left: 35%;
-      width: 8px;
-      height: 8px;
-      background: #00ffff;
-      border-radius: 50%;
-      filter: blur(1px);
-      opacity: 0.6;
+    @include mobile {
+      top: 18px;
+      left: 16px;
+      width: 46px;
+      height: 46px;
     }
 
     &:hover {
-      background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-      border-color: #00ffff;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-      transform: scale(1.1) rotate(15deg);
-
-      &::before,
-      &::after {
-        animation: twinkle 1s infinite alternate;
-      }
+      transform: translateY(-2px);
+      border-color: var(--command-cyan);
+      background: rgba(72, 215, 255, 0.12);
+      color: var(--command-cyan);
     }
-  }
-}
-
-@keyframes twinkle {
-  from {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1.2);
-    filter: blur(1px);
   }
 }

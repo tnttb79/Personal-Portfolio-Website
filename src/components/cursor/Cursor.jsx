@@ -3,11 +3,15 @@ import "./cursor.scss";
 
 const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [trail, setTrail] = useState([]);
   const [isHovering, setIsHovering] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     const mouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      const nextPosition = { x: e.clientX, y: e.clientY };
+      setPosition(nextPosition);
+      setTrail((prev) => [nextPosition, ...prev].slice(0, 7));
     };
 
     const checkHover = (e) => {
@@ -16,26 +20,48 @@ const Cursor = () => {
       );
       setIsHovering(!!hoverable);
     };
+    const clearHover = () => setIsHovering(false);
+    const setPressed = () => setIsActive(true);
+    const clearPressed = () => setIsActive(false);
 
     window.addEventListener("mousemove", mouseMove);
+    window.addEventListener("mousedown", setPressed);
+    window.addEventListener("mouseup", clearPressed);
     document.addEventListener("mouseover", checkHover);
-    document.addEventListener("mouseout", () => setIsHovering(false));
+    document.addEventListener("mouseout", clearHover);
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
+      window.removeEventListener("mousedown", setPressed);
+      window.removeEventListener("mouseup", clearPressed);
       document.removeEventListener("mouseover", checkHover);
-      document.removeEventListener("mouseout", () => setIsHovering(false));
+      document.removeEventListener("mouseout", clearHover);
     };
   }, []);
 
   return (
-    <div
-      className={`custom-cursor ${isHovering ? "hovering" : ""}`}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-      }}
-    />
+    <>
+      {trail.map((point, index) => (
+        <span
+          className='cursor-trail'
+          key={`${point.x}-${point.y}-${index}`}
+          style={{
+            left: `${point.x}px`,
+            top: `${point.y}px`,
+            opacity: (7 - index) / 12,
+          }}
+        />
+      ))}
+      <div
+        className={`custom-cursor ${isHovering ? "hovering" : ""} ${
+          isActive ? "active" : ""
+        }`}
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+        }}
+      />
+    </>
   );
 };
 

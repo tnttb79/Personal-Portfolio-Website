@@ -99,12 +99,12 @@ const Contact = () => {
             <textarea rows={8} placeholder='Message' name='message' />
             <button type='submit'>Submit</button>
             {error && (
-              <span style={{ color: "red", fontSize: "14px" }}>
+              <span className='formStatus error'>
                 Error sending message. Please try again.
               </span>
             )}
             {success && (
-              <span style={{ color: "green", fontSize: "14px" }}>
+              <span className='formStatus success'>
                 Message sent successfully!
               </span>
             )}

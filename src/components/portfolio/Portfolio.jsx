@@ -65,18 +65,22 @@ const Single = ({ item }) => {
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
   return (
-    <section>
+    <section className='projectSection'>
       <div className='container'>
         <div className='wrapper'>
           <div className='imageContainer' ref={ref}>
-            <img src={item.img} alt='' />
+            <img src={item.img} alt={`${item.title} screenshot`} />
           </div>
           <motion.div className='textContainer' style={{ y }}>
+            <span className='projectIndex'>
+              PROJECT_{item.id.toString().padStart(2, "0")}
+            </span>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <p className='technologies'>
-              <strong>Techonologies used:</strong> {item.technologies}
-            </p>
+            <div className='technologies'>
+              <strong>Techonologies used:</strong>
+              <span>{item.technologies}</span>
+            </div>
             <div className='linksContainer'>
               {item.demo ? (
                 <a href={item.demo} target='_blank' rel='noreferrer'>

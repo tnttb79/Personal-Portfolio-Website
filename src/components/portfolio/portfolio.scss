@@ -1,61 +1,10 @@
 @import "../../app.scss";
 
-// Color Variables
-:root {
-  // Primary Colors - VS Code Dark+ inspired
-  --primary-900: #1a1b26; // Deep blue-black - main background
-  --primary-800: #24283b; // Dark blue - secondary background
-  --primary-700: #2f334d; // Muted blue - accents
-
-  // Accent Colors - Syntax highlighting inspired
-  --accent-500: #7aa2f7; // Bright blue - primary actions
-  --accent-400: #bb9af7; // Purple - highlights
-  --accent-300: #2ac3de; // Cyan - special elements
-
-  // Neutral Colors
-  --neutral-100: #c0caf5; // Light blue-white - text
-  --neutral-200: #9aa5ce; // Muted blue - secondary text
-  --neutral-700: #565f89; // Comments color
-  --neutral-800: #414868; // Dark text
-
-  // Status Colors - Terminal inspired
-  --success: #9ece6a; // Success green
-  --warning: #e0af68; // Warning yellow
-  --error: #f7768e; // Error pink
-
-  // Gradients
-  --gradient-primary: linear-gradient(
-    135deg,
-    var(--primary-800) 0%,
-    var(--primary-900) 100%
-  );
-  --gradient-accent: linear-gradient(
-    135deg,
-    var(--accent-500) 0%,
-    var(--accent-300) 100%
-  );
-
-  // VS Code colors
-  --vscode-bg: #1e1e1e;
-  --vscode-sidebar: #252526;
-  --vscode-active-tab: #1e1e1e;
-  --vscode-inactive-tab: #2d2d2d;
-  --vscode-border: #454545;
-  --vscode-text: #d4d4d4;
-  --vscode-comment: #6a9955;
-  --vscode-keyword: #569cd6;
-  --vscode-function: #dcdcaa;
-  --vscode-string: #ce9178;
-  --vscode-number: #b5cea8;
-  --vscode-line-number: #858585;
-  --vscode-scrollbar: #424242;
-  --vscode-selection: #264f78;
-}
-
 .portfolio {
   position: relative;
-  background-color: var(--vscode-bg);
-  color: var(--neutral-100);
+  background:
+    linear-gradient(180deg, #081018 0%, var(--command-bg) 38%, #05090d 100%);
+  color: var(--command-text);
 
   @include mobile {
     height: auto;
@@ -67,187 +16,222 @@
     position: sticky;
     top: 0;
     left: 0;
-    padding-top: 50px;
-    text-align: center;
-    color: var(--accent-500);
-    background: var(--vscode-sidebar);
-    border-bottom: 1px solid var(--vscode-border);
-    font-size: 36px;
     z-index: 10;
+    padding: 18px 24px 0 112px;
+    background: rgba(3, 6, 8, 0.88);
+    border-bottom: 1px solid var(--command-line);
 
     @include mobile {
-      padding-top: 20px;
-      font-size: 24px;
-    }
-
-    .progressBar {
-      height: 10px;
-      background: var(--gradient-accent);
+      padding: 78px 14px 0;
     }
 
     h1 {
-      font-family: "Fira Code", monospace;
-      color: var(--vscode-function);
-      font-size: 16px;
-      padding: 8px 16px;
+      margin-top: 4px;
+      color: var(--command-text);
+      font-size: clamp(20px, 3vw, 34px);
+      letter-spacing: 0;
 
       &::before {
         content: "// ";
-        color: var(--vscode-comment);
+        color: var(--command-dim);
       }
+    }
+
+    .progressBar {
+      height: 3px;
+      margin-top: 14px;
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--command-green), var(--command-cyan), var(--command-amber));
+      box-shadow: 0 0 18px rgba(72, 215, 255, 0.34);
+    }
+  }
+
+  .projectSection {
+    background:
+      linear-gradient(90deg, rgba(122, 146, 166, 0.08) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(122, 146, 166, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+
+    @include mobile {
+      min-height: auto;
+      padding: 52px 0;
     }
   }
 
   .container {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
 
     @include mobile {
       height: auto;
-      padding: 20px 10px;
+      overflow: visible;
+      padding: 0 16px;
+    }
+  }
+
+  .wrapper {
+    width: min(1180px, calc(100% - 48px));
+    height: 76%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    align-items: center;
+    gap: 42px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      height: auto;
+      gap: 24px;
+      padding: 74px 0 46px;
     }
 
-    .wrapper {
-      max-width: 1366px;
+    @include mobile {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    height: min(460px, 52vh);
+    overflow: hidden;
+    border: 1px solid var(--command-line);
+    border-radius: var(--command-radius);
+    background: var(--command-surface);
+    box-shadow: 0 0 0 1px rgba(182, 255, 173, 0.14), var(--command-shadow);
+
+    @include mobile {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+    }
+
+    img {
+      width: 100%;
       height: 100%;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 50px;
+      object-fit: cover;
+      filter: saturate(0.82) contrast(1.05);
 
       @include mobile {
-        flex-direction: column;
-        height: auto;
-        gap: 20px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    border: 1px solid var(--command-line);
+    border-radius: var(--command-radius);
+    background: var(--command-panel);
+    box-shadow: 0 0 0 1px rgba(182, 255, 173, 0.14), var(--command-shadow);
+
+    @include mobile {
+      transform: none !important;
+      padding: 22px;
+      gap: 16px;
+    }
+
+    .projectIndex {
+      color: var(--command-green);
+      font-family: "Fira Code", monospace;
+      font-size: 12px;
+    }
+
+    h2 {
+      color: var(--command-text);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+
+      &::before {
+        content: "{ ";
+        color: var(--command-cyan);
       }
 
-      .imageContainer {
-        flex: 1;
-        height: 50%;
+      &::after {
+        content: " }";
+        color: var(--command-cyan);
+      }
+    }
 
-        @include mobile {
-          width: 100%;
-          max-height: 200px;
-          margin-bottom: 20px;
+    p {
+      color: var(--command-muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .technologies {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+      border: 1px solid var(--command-line);
+      border-radius: var(--command-radius);
+      background: rgba(3, 6, 8, 0.6);
+
+      strong {
+        color: var(--command-amber);
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+      }
+
+      span {
+        color: var(--command-text);
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+    }
+
+    .linksContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      a,
+      button {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border: 1px solid var(--command-line-strong);
+        border-radius: var(--command-radius);
+        background: rgba(165, 243, 252, 0.1);
+        color: var(--command-text);
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          border-color: var(--command-cyan);
+          background: rgba(72, 215, 255, 0.14);
         }
 
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 8px;
-
-          @include mobile {
-            object-fit: contain;
-          }
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
         }
       }
 
-      .textContainer {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+      .demo-disabled {
+        color: var(--command-dim);
+        background: rgba(122, 146, 166, 0.08);
+        cursor: not-allowed;
 
-        @include mobile {
-          transform: none !important;
-          padding: 10px;
-          align-items: center;
-          text-align: center;
-          gap: 15px;
-        }
-
-        h2 {
-          color: var(--vscode-keyword);
-          font-family: "Fira Code", monospace;
-          font-size: 24px;
-
-          &::before {
-            content: "const ";
-            color: var(--vscode-keyword);
-          }
-
-          &::after {
-            content: " = {";
-            color: var(--vscode-text);
-          }
-        }
-
-        p {
-          color: var(--vscode-text);
-          font-family: "Fira Code", monospace;
-          font-size: 14px;
-          line-height: 1.6;
-          padding-left: 20px;
-
-          &::before {
-            content: "// ";
-            color: var(--vscode-comment);
-          }
-        }
-
-        .technologies {
-          color: var(--vscode-string);
-
-          strong {
-            color: var(--vscode-function);
-          }
-        }
-
-        .linksContainer {
-          display: flex;
-          gap: 10px;
-
-          a,
-          button {
-            font-family: "Fira Code", monospace;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            background: var(--vscode-inactive-tab);
-            border: 1px solid var(--vscode-border);
-            color: var(--vscode-text);
-            padding: 6px 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(249, 177, 122, 0.2);
-
-            &:hover {
-              background: var(--vscode-active-tab);
-              transform: none;
-              box-shadow: none;
-            }
-
-            img {
-              width: 25px;
-              height: 25px;
-              margin-inline: 6px;
-            }
-          }
-
-          .demo-disabled {
-            background: var(--primary-700);
-            color: var(--neutral-200);
-            opacity: 0.8;
-            cursor: not-allowed;
-            box-shadow: none;
-
-            &:hover {
-              transform: none;
-              background: var(--primary-700);
-              box-shadow: none;
-            }
-
-            &::after {
-              content: "🚧";
-              margin-left: 8px;
-            }
-          }
+        &:hover {
+          transform: none;
+          border-color: var(--command-line-strong);
+          background: rgba(122, 146, 166, 0.08);
         }
       }
     }

@@ -2,6 +2,17 @@ import { useRef } from "react";
 import "./parallax.scss";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+const techIcons = [
+  ["react", "/paralaxIcons/react.png"],
+  ["javascript", "/paralaxIcons/javaScript.png"],
+  ["typescript", "/paralaxIcons/typeScript.png"],
+  ["python", "/paralaxIcons/python.png"],
+  ["csharp", "/paralaxIcons/cSharp.png"],
+  ["docker", "/paralaxIcons/docker.png"],
+  ["html", "/paralaxIcons/html.png"],
+  ["css", "/paralaxIcons/css.png"],
+];
+
 const Parallax = () => {
   const ref = useRef();
 
@@ -11,37 +22,23 @@ const Parallax = () => {
   });
 
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
-  const textVariants = {
-    scrollButton: {
-      opacity: 0,
-      y: 10,
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-      },
-    },
-  };
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
 
   return (
-    <div className='parallax scan-lines' ref={ref}>
-      {/* Line numbers decoration */}
+    <div className='parallax command-grid scan-lines' ref={ref}>
       <div className='code-decoration line-numbers'>
-        {[...Array(6)].map((_, i) => (
-          <span key={i}>{(i + 1).toString().padStart(2, "0")}</span>
+        {[...Array(8)].map((_, i) => (
+          <span key={i}>{(i + 12).toString().padStart(2, "0")}</span>
         ))}
       </div>
 
-      {/* Code snippets decoration */}
       <div className='code-decoration code-snippets'>
-        <div className='comment'>{/* Welcome to my digital space */}</div>
+        <div className='comment'>{"// Welcome to my digital space"}</div>
         <div>
           <span className='keyword'>const</span> portfolio = {`{`}
         </div>
         <div>
-          &nbsp;&nbsp;creator: <span className='string'>&quot;Thang&quot;</span>
-          ,
+          &nbsp;&nbsp;creator: <span className='string'>&quot;Thang&quot;</span>,
         </div>
         <div>
           &nbsp;&nbsp;passion:{" "}
@@ -50,15 +47,24 @@ const Parallax = () => {
         <div>{`}`};</div>
       </div>
 
-      {/* Floating elements */}
       <div className='floating-elements'>
         <div className='element'>{"<code/>"}</div>
+        <div className='element'>useEffect()</div>
+        <div className='element'>docker build</div>
       </div>
 
-      {/* Main content */}
       <div className='content-wrapper'>
+        <motion.div
+          className='eyebrow'
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span></span>
+          software systems portfolio
+        </motion.div>
         <motion.h1 style={{ y: yText }}>
-          Hi! I&apos;m <span className='name neon-glow'>Thang</span>
+          Hi! I&apos;m Thang
           <span className='role'>Software Developer</span>
         </motion.h1>
         <motion.div
@@ -69,44 +75,29 @@ const Parallax = () => {
         >
           Crafting elegant solutions through code
         </motion.div>
+        <motion.div
+          className='hero-actions'
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <a href='#Portfolio'>Check Out My Works</a>
+          <a href='/Thang_Ta_Resume(WD).pdf' target='_blank' rel='noreferrer'>
+            View My Resume
+          </a>
+        </motion.div>
       </div>
 
-      {/* Background elements */}
       <motion.div className='tech-icons' style={{ y: yBg }}>
-        <div
-          className='icon react'
-          style={{ backgroundImage: 'url("/paralaxIcons/react.png")' }}
-        ></div>
-        <div
-          className='icon javascript'
-          style={{ backgroundImage: 'url("/paralaxIcons/javaScript.png")' }}
-        ></div>
-        <div
-          className='icon typescript'
-          style={{ backgroundImage: 'url("/paralaxIcons/typeScript.png")' }}
-        ></div>
-        <div
-          className='icon python'
-          style={{ backgroundImage: 'url("/paralaxIcons/python.png")' }}
-        ></div>
-        <div
-          className='icon csharp'
-          style={{ backgroundImage: 'url("/paralaxIcons/cSharp.png")' }}
-        ></div>
-        <div
-          className='icon docker'
-          style={{ backgroundImage: 'url("/paralaxIcons/docker.png")' }}
-        ></div>
-        <div
-          className='icon html'
-          style={{ backgroundImage: 'url("/paralaxIcons/html.png")' }}
-        ></div>
-        <div
-          className='icon css'
-          style={{ backgroundImage: 'url("/paralaxIcons/css.png")' }}
-        ></div>
+        {techIcons.map(([name, image]) => (
+          <div
+            className={`icon ${name}`}
+            key={name}
+            style={{ backgroundImage: `url("${image}")` }}
+          ></div>
+        ))}
       </motion.div>
-      <div className='stars' />
+
       <div className='scroll-indicator'>
         <span>Explore my journey</span>
       </div>

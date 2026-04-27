@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const Test = () => {
-  const [open, setOpen] = useState(false);
-
   const variants = {
     visible: (i)=>( {
       opacity: 1,
