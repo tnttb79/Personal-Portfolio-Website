@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./simple.scss";
+import ScrollTopButton from "../scrolltop/ScrollTopButton";
 import {
   profile,
   socials,
@@ -137,6 +138,8 @@ const SimpleView = ({ onExit }) => {
           </button>
         </footer>
       </div>
+
+      <ScrollTopButton variant="simple" />
     </div>
   );
 };

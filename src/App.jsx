@@ -9,6 +9,7 @@ import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
 import RecruiterBanner from "./components/banner/RecruiterBanner";
 import SimpleView from "./components/simple/SimpleView";
+import ScrollTopButton from "./components/scrolltop/ScrollTopButton";
 import { createCommandRegistry, THEMES } from "./lib/commands";
 import { profile, socials } from "./config/portfolio";
 
@@ -101,6 +102,8 @@ const App = () => {
           <a href={socials.linkedin} target="_blank" rel="noreferrer">linkedin</a>
         </span>
       </footer>
+
+      <ScrollTopButton variant="terminal" />
     </>
   );
 };

@@ -1,0 +1,88 @@
+/* ============================================================
+   Back-to-top button — small, fixed, theme-aware.
+   Hidden until scrolled; pops in from below-right.
+   ============================================================ */
+
+.scrolltop {
+  position: fixed;
+  right: clamp(16px, 4vw, 28px);
+  bottom: clamp(16px, 4vw, 28px);
+  z-index: 950;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 600;
+
+  opacity: 0;
+  transform: translateY(14px) scale(0.94);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .caret {
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  &:hover .caret {
+    transform: translateY(-2px);
+  }
+
+  /* ---- terminal variant ---- */
+  &--terminal {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--accent);
+    background: var(--surface-elevated);
+    border: 1px solid var(--accent-line);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+
+    .caret {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    &:hover {
+      border-color: var(--accent);
+      box-shadow: var(--glow), 0 6px 20px rgba(0, 0, 0, 0.45);
+      background: var(--surface);
+    }
+  }
+
+  /* ---- simple variant ---- */
+  &--simple {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: #1c1b18;
+    background: #fff;
+    border: 1px solid #e0ddd3;
+    box-shadow: 0 8px 22px rgba(28, 27, 24, 0.1);
+
+    .caret {
+      color: #1f6f54;
+      font-weight: 700;
+    }
+    &:hover {
+      color: #1f6f54;
+      border-color: #1f6f54;
+      box-shadow: 0 10px 26px rgba(31, 111, 84, 0.18);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrolltop {
+    transition: opacity 0.15s ease;
+    transform: none;
+    &.is-visible { transform: none; }
+  }
+}

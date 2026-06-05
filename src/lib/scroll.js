@@ -13,3 +13,12 @@ export function scrollToSection(id) {
   });
   return true;
 }
+
+// Smooth-scroll back to the top of the page, respecting reduced-motion.
+export function scrollToTop() {
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+}
