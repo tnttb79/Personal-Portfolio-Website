@@ -29,7 +29,7 @@ const About = ({ runCommand }) => {
           <div className="row"><span className="key">name</span><span className="val">{"Thang Ta"}</span></div>
           <div className="row"><span className="key">role</span><span className="val">Software Developer</span></div>
           <div className="row"><span className="key">location</span><span className="val">{socials.location}</span></div>
-          <div className="row"><span className="key">status</span><span className="val" style={{ color: "var(--accent)" }}>open to work</span></div>
+          <div className="row"><span className="key">status</span><span className="val" style={{ color: "var(--accent)" }}>maybe open to work</span></div>
           <div className="socials">
             <a href={socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <img src="/linkedIn.png" alt="" />

@@ -7,6 +7,8 @@ import About from "./components/sections/About";
 import Projects from "./components/sections/Projects";
 import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
+import RecruiterBanner from "./components/banner/RecruiterBanner";
+import SimpleView from "./components/simple/SimpleView";
 import { createCommandRegistry, THEMES } from "./lib/commands";
 import { profile, socials } from "./config/portfolio";
 
@@ -16,13 +18,36 @@ const getInitialTheme = () => {
   return THEMES.includes(saved) ? saved : "dark";
 };
 
+const getInitialMode = () => {
+  if (typeof window === "undefined") return "terminal";
+  return window.localStorage.getItem("viewMode") === "simple"
+    ? "simple"
+    : "terminal";
+};
+
 const App = () => {
   const [theme, setThemeState] = useState(getInitialTheme);
+  const [mode, setMode] = useState(getInitialMode);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     window.localStorage.setItem("theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-mode", mode);
+    window.localStorage.setItem("viewMode", mode);
+  }, [mode]);
+
+  const enterSimple = useCallback(() => {
+    setMode("simple");
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
+  const exitSimple = useCallback(() => {
+    setMode("terminal");
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   const setTheme = useCallback((t) => {
     if (THEMES.includes(t)) setThemeState(t);
@@ -36,9 +61,14 @@ const App = () => {
   // runCommand executes a command and returns the result (used by TerminalInput).
   const runCommand = useCallback((raw) => registry.run(raw), [registry]);
 
+  if (mode === "simple") {
+    return <SimpleView onExit={exitSimple} />;
+  }
+
   return (
     <>
       <Cursor />
+      <RecruiterBanner onSwitch={enterSimple} />
       <TerminalNavbar theme={theme} setTheme={setTheme} runCommand={runCommand} />
 
       <main className="site-main">

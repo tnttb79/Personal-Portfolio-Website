@@ -33,7 +33,7 @@ export function createCommandRegistry({ setTheme, clearHistory }) {
         "Available commands:",
         "  about        view background",
         "  skills       view technical stack",
-        "  projects     view selected work",
+        "  projects     peek at my abandoned projects",
         "  resume       view resume",
         "  contact      get in touch",
         "  theme <name> switch theme (dark | midnight | matrix)",
@@ -49,11 +49,11 @@ export function createCommandRegistry({ setTheme, clearHistory }) {
     contact: () => goto("contact"),
     resume: () => {
       window.open(resumeUrl, "_blank", "noopener");
-      return { lines: ["opening resume — Thang_Ta_Resume.pdf"], tone: "ok" };
+      return { lines: ["opening resume: Thang_Ta_Resume.pdf"], tone: "ok" };
     },
     whoami: () => ({
       lines: [
-        "Thang Ta — Software Developer",
+        "Thang Ta :: Software Developer",
         "React • .NET • Node.js • Python • SQL • Cloud",
       ],
       tone: "ok",

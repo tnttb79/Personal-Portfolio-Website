@@ -1,6 +1,7 @@
 @import "../../app.scss";
 
-body {
+/* Hide the native cursor only in terminal mode (where the custom cursor renders). */
+html:not([data-mode="simple"]) body {
   cursor: none;
   * { cursor: none; }
 

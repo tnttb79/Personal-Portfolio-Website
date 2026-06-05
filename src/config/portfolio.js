@@ -34,14 +34,14 @@ export const navItems = [
 export const about = {
   command: "cat about.md",
   paragraphs: [
-    "Hey there — I'm Thang Ta, a passionate Software Developer. My journey began with SQL and Python for data analysis and grew into full-stack software development through building real, shippable projects.",
+    "Hey there, I'm Thang Ta, a passionate Software Developer. My journey began with SQL and Python for data analysis and grew into full-stack software development through building real, shippable projects.",
     "I care about clean architecture, readable code, and products that actually help the people using them. Outside the editor I enjoy learning languages and playing soccer.",
   ],
 };
 
 export const experience = [
   {
-    period: "2023 — present",
+    period: "2023 to present",
     title: "Full-stack Developer",
     focus: "self-directed / project work",
     points: [
@@ -51,12 +51,12 @@ export const experience = [
     ],
   },
   {
-    period: "2021 — 2023",
+    period: "2021 to 2023",
     title: "Data → Software transition",
     focus: "foundations",
     points: [
       "Started with SQL and Python for data analysis and automation.",
-      "Moved into web development — JavaScript, the MERN stack, and component-driven UI.",
+      "Moved into web development: JavaScript, the MERN stack, and component-driven UI.",
       "Self-taught full-stack engineering through hands-on builds.",
     ],
   },
@@ -138,7 +138,7 @@ export const projects = [
     title: "Application Management",
     img: "/ApplicationManagement.png",
     desc:
-      "A modern full-stack app for managing job applications and resumes. Built with React, .NET Core, and SQL Server, with a polished dark/light theme. Currently in active development — auth and deployment are upcoming.",
+      "A modern full-stack app for managing job applications and resumes. Built with React, .NET Core, and SQL Server, with a polished dark/light theme. Currently in active development; auth and deployment are upcoming.",
     technologies: ["React", "TypeScript", "Material-UI", ".NET Core 8", "SQL Server", "Docker Compose", "EF Core"],
     demo: null,
     github: "https://github.com/tnttb79/ResumeMgtWebAPIDotNet",

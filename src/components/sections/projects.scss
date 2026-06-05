@@ -63,7 +63,7 @@
         color: var(--text-secondary);
         font-weight: 400;
         font-size: 12.5px;
-        &::before { content: "— "; color: var(--text-muted); }
+        &::before { content: "· "; color: var(--text-muted); }
       }
 
       .chev {

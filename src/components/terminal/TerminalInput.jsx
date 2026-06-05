@@ -99,14 +99,14 @@ const TerminalInput = ({ runCommand, names = [] }) => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={onKeyDown}
-          placeholder="type a command — try `help`"
+          placeholder="type a command, try `help`"
           autoComplete="off"
           autoCapitalize="off"
           spellCheck="false"
         />
       </form>
       <p className="ti-hint">
-        ↑/↓ history · Tab to autocomplete · optional — use the buttons above if you prefer
+        ↑/↓ history · Tab to autocomplete · optional, use the buttons above if you prefer
       </p>
     </div>
   );

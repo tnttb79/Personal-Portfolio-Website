@@ -3,7 +3,7 @@ import "./hero.scss";
 import TerminalWindow from "../terminal/TerminalWindow";
 import TerminalPrompt from "../terminal/TerminalPrompt";
 import TerminalInput from "../terminal/TerminalInput";
-import { profile, resumeUrl } from "../../config/portfolio";
+import { profile } from "../../config/portfolio";
 
 const BOOT = [
   { text: "Initializing portfolio...", ok: false },
@@ -16,7 +16,7 @@ const BOOT = [
 const HERO_COMMANDS = [
   ["about", "view background"],
   ["skills", "view technical stack"],
-  ["projects", "view selected work"],
+  ["projects", "peek at my abandoned projects"],
   ["resume", "view resume"],
   ["contact", "get in touch"],
 ];
@@ -39,7 +39,7 @@ const Hero = ({ runCommand, commandNames }) => {
 
   return (
     <header id="top" className="hero">
-      <TerminalWindow title={`${profile.user}@${profile.host}: ~ — zsh`}>
+      <TerminalWindow title={`${profile.user}@${profile.host}: ~ · zsh`}>
         <div className="boot" aria-label="boot sequence">
           <span className="boot-line">
             <span className="user">{profile.user}@{profile.host}</span>
@@ -93,18 +93,6 @@ const Hero = ({ runCommand, commandNames }) => {
                   </button>
                 ))}
               </div>
-            </div>
-
-            <div className="cta-row">
-              <a href="#projects" className="primary" onClick={(e) => { e.preventDefault(); runCommand("projects"); }}>
-                [ View Projects ]
-              </a>
-              <a href={resumeUrl} target="_blank" rel="noreferrer">
-                [ View Resume ]
-              </a>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); runCommand("contact"); }}>
-                [ Contact Me ]
-              </a>
             </div>
 
             <TerminalInput runCommand={runCommand} names={commandNames} />
