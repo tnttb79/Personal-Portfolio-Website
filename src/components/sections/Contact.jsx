@@ -77,7 +77,7 @@ const Contact = () => {
         </div>
         <div>
           <label className="field-label" htmlFor="c-msg">message</label>
-          <textarea id="c-msg" rows={7} placeholder="What would you like to build together?" name="message" />
+          <textarea id="c-msg" rows={7} placeholder="Any message works, just not your SSN or credit card number..." name="message" />
         </div>
         <button type="submit">$ send --message</button>
         {error && (
