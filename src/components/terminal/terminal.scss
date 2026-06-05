@@ -1,0 +1,209 @@
+@import "../../app.scss";
+
+.sr-only-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- TerminalWindow ---------- */
+.terminal-window {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  .terminal-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--surface-elevated);
+    border-bottom: 1px solid var(--border);
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      flex: none;
+      &.red { background: #ff5f57; }
+      &.yellow { background: #febc2e; }
+      &.green { background: #28c840; }
+    }
+
+    .terminal-title {
+      margin-left: 8px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .terminal-body {
+    padding: 26px 28px 30px;
+
+    @include mobile {
+      padding: 20px 16px 24px;
+    }
+  }
+}
+
+/* ---------- TerminalPrompt ---------- */
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.6;
+  word-break: break-word;
+
+  .user { color: var(--prompt-user); }
+  .path { color: var(--prompt-path); }
+  .sym { color: var(--text-muted); margin-right: 8px; }
+  .command { color: var(--text-primary); }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.05em;
+    margin-left: 4px;
+    vertical-align: text-bottom;
+    background: var(--accent);
+    animation: term-blink 1.1s steps(1) infinite;
+  }
+}
+
+@keyframes term-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ---------- TerminalSection ---------- */
+.terminal-section {
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+  width: min(var(--maxw), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 8px;
+
+  @include mobile {
+    width: calc(100% - 28px);
+    padding: 40px 0 4px;
+  }
+
+  .terminal-output {
+    margin-top: 18px;
+  }
+}
+
+/* ---------- CommandChip ---------- */
+.command-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease,
+    background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+
+  &::before {
+    content: "$";
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+    box-shadow: var(--glow);
+  }
+}
+
+/* ---------- TerminalInput ---------- */
+.terminal-input {
+  margin-top: 18px;
+
+  .ti-history {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+
+    .ti-echo {
+      color: var(--text-primary);
+      .user { color: var(--prompt-user); }
+      .path { color: var(--prompt-path); }
+      .sym { color: var(--text-muted); margin-right: 6px; }
+    }
+    .ti-out {
+      white-space: pre-wrap;
+      color: var(--text-secondary);
+      &.ok { color: var(--accent); }
+      &.error { color: var(--term-red); }
+      &.muted { color: var(--text-muted); }
+    }
+  }
+
+  .ti-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-deep);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+
+    &:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .ti-prompt {
+      flex: none;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: var(--prompt-user);
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      caret-color: var(--accent);
+
+      &::placeholder { color: var(--text-muted); }
+    }
+  }
+
+  .ti-hint {
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+}

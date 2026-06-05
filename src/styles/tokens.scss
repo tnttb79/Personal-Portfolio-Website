@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap");
+
+/* ============================================================
+   Design tokens + theme system
+   Themes are switched via [data-theme] on <html>.
+   Terminal colors are used as ACCENTS, never as body text.
+   ============================================================ */
+
+:root {
+  /* Surfaces */
+  --bg: #05070a;
+  --bg-deep: #03050a;
+  --surface: #0b1117;
+  --surface-elevated: #111827;
+  --surface-soft: rgba(17, 24, 39, 0.55);
+  --border: #1f2937;
+  --border-strong: #2b3a4f;
+
+  /* Text */
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+
+  /* Terminal accents */
+  --term-green: #00ff88;
+  --term-cyan: #38bdf8;
+  --term-yellow: #facc15;
+  --term-red: #f87171;
+  --term-purple: #a78bfa;
+
+  /* Roles */
+  --accent: var(--term-green);
+  --accent-soft: rgba(0, 255, 136, 0.12);
+  --accent-line: rgba(0, 255, 136, 0.32);
+  --prompt-user: var(--term-green);
+  --prompt-path: var(--term-cyan);
+  --link: var(--term-cyan);
+  --selection-bg: rgba(0, 255, 136, 0.28);
+
+  /* Effects */
+  --glow: 0 0 24px rgba(0, 255, 136, 0.18);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --radius: 10px;
+  --radius-sm: 6px;
+
+  /* Fonts */
+  --font-mono: "JetBrains Mono", "Fira Code", "SFMono-Regular", Consolas, monospace;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --nav-h: 56px;
+  --maxw: 1080px;
+}
+
+[data-theme="midnight"] {
+  --bg: #020617;
+  --bg-deep: #010312;
+  --surface: #0f172a;
+  --surface-elevated: #16203a;
+  --surface-soft: rgba(22, 32, 58, 0.55);
+  --border: #1e293b;
+  --border-strong: #334155;
+
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent: var(--term-cyan);
+  --accent-soft: rgba(56, 189, 248, 0.14);
+  --accent-line: rgba(56, 189, 248, 0.34);
+  --prompt-user: var(--term-cyan);
+  --prompt-path: var(--term-purple);
+  --link: var(--term-cyan);
+  --selection-bg: rgba(56, 189, 248, 0.3);
+  --glow: 0 0 24px rgba(56, 189, 248, 0.2);
+}
+
+[data-theme="matrix"] {
+  --bg: #000600;
+  --bg-deep: #000300;
+  --surface: #04120a;
+  --surface-elevated: #071d10;
+  --surface-soft: rgba(7, 29, 16, 0.6);
+  --border: #103a22;
+  --border-strong: #1b5435;
+
+  --text-primary: #d1fae5;
+  --text-secondary: #6ee7b7;
+  --text-muted: #3f8f63;
+
+  --term-green: #22c55e;
+  --accent: #22c55e;
+  --accent-soft: rgba(34, 197, 94, 0.14);
+  --accent-line: rgba(34, 197, 94, 0.4);
+  --prompt-user: #22c55e;
+  --prompt-path: #4ade80;
+  --link: #4ade80;
+  --selection-bg: rgba(34, 197, 94, 0.32);
+  --glow: 0 0 26px rgba(34, 197, 94, 0.28);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+  min-width: 320px;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, var(--accent-soft), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(56, 189, 248, 0.06), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Subtle grid texture overlay for atmosphere */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+a,
+button,
+input,
+textarea,
+[tabindex] {
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border: 3px solid var(--bg-deep);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.site-main {
+  padding-bottom: 40px;
+}
+
+.site-footer {
+  width: min(var(--maxw), calc(100% - 40px));
+  margin: 48px auto 0;
+  padding: 22px 0 40px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-muted);
+
+  .foot-prompt .accent {
+    color: var(--accent);
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

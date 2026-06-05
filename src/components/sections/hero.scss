@@ -1,0 +1,176 @@
+@import "../../app.scss";
+
+.hero {
+  width: min(var(--maxw), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 40px 0 8px;
+  scroll-margin-top: var(--nav-h);
+
+  @include mobile {
+    width: calc(100% - 28px);
+    padding: 24px 0 4px;
+  }
+
+  .boot {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    min-height: 132px;
+
+    @include mobile { min-height: 150px; }
+
+    .boot-line {
+      display: block;
+      .muted { color: var(--text-muted); }
+      .ok { color: var(--accent); }
+      .user { color: var(--prompt-user); }
+      .path { color: var(--prompt-path); }
+      .sym { color: var(--text-muted); margin-right: 8px; }
+    }
+  }
+
+  .whoami {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--border);
+
+    .who-prompt {
+      margin-bottom: 18px;
+    }
+
+    .name {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: clamp(40px, 8vw, 80px);
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      background: linear-gradient(
+        100deg,
+        var(--text-primary) 30%,
+        var(--accent) 120%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .role {
+      margin-top: 14px;
+      font-family: var(--font-mono);
+      font-size: clamp(16px, 3vw, 24px);
+      color: var(--prompt-path);
+
+      &::before { content: "> "; color: var(--accent); }
+    }
+
+    .blurb {
+      max-width: 60ch;
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+
+      span {
+        padding: 5px 10px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: var(--surface-soft);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+    }
+  }
+
+  .commands-block {
+    margin-top: 26px;
+
+    .commands-label {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+
+      &::before { content: "# "; color: var(--accent); }
+    }
+
+    .commands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 8px;
+
+      button {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        text-align: left;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: var(--bg-deep);
+        cursor: pointer;
+        transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+
+        .cmd {
+          font-family: var(--font-mono);
+          font-size: 13px;
+          color: var(--accent);
+          flex: none;
+        }
+        .desc {
+          font-size: 12.5px;
+          color: var(--text-secondary);
+        }
+
+        &:hover {
+          border-color: var(--accent);
+          background: var(--accent-soft);
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      background: var(--surface-soft);
+      transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+
+      &.primary {
+        border-color: var(--accent);
+        color: var(--bg-deep);
+        background: var(--accent);
+        font-weight: 600;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--glow);
+      }
+      &:not(.primary):hover { border-color: var(--accent); }
+    }
+  }
+}
